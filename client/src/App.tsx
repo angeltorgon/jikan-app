@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
+import { Typography, Button, TextField } from '@material-ui/core';
+
 // COMPONENTS
 import Results from './components/Results';
 
@@ -26,10 +28,16 @@ const App: React.FC<{}> = () => {
 
   return (
     <div className="App">
+      <Typography variant="h2" component="h1">Anime Finder</Typography>
       <div>
         <form onSubmit={handleSubmit}>
-          <input onChange={handleChanges} value={input} type="text" />
-          <button>Search</button>
+          <TextField 
+            variant="outlined" 
+            onChange={handleChanges} 
+            value={input} 
+            label="Search"
+            type="text" />
+          <Button variant="contained" type="submit">Search</Button>
         </form>
       </div>
       <div>

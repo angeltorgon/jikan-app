@@ -1,0 +1,10 @@
+.results {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: darkslategray;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
