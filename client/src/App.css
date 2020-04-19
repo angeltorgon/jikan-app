@@ -1,7 +1,9 @@
 .App {
   text-align: center;
-  background-color: steelblue;
   color: white;
+  background-color: darkslategray;
+  height: 100vh;
+  margin: 0;
 }
 
 .App-logo {
@@ -19,11 +21,14 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+header {
+  padding: 10px;
+}
+
+input {
+  color: white;
 }
 
 @keyframes App-logo-spin {
