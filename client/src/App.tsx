@@ -4,8 +4,9 @@ import './App.css';
 // COMPONENTS
 import Results from './components/Results';
 
-function App() {
-  const [ input, setInput ] = useState("");
+const App: React.FC<{}> = () => {
+  const [ input, setInput ] = useState<string>("");
+  const [ results, setResults ] = useState<[]>([]);
 
   const handleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -18,13 +19,13 @@ function App() {
   return (
     <div className="App">
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input onChange={handleChanges} value={input} type="text" />
           <button>Search</button>
         </form>
       </div>
       <div>
-        <Results/>
+        <Results results={results}/>
       </div>
     </div>
   );
