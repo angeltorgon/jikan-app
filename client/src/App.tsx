@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 
 // COMPONENTS
@@ -14,6 +15,13 @@ const App: React.FC<{}> = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    axios.get(`https://api.jikan.moe/v3/search/anime?q=${input}&page=1`)
+    .then((res) => {
+      console.log(res.data.results)
+      setResults(res.data.results);
+    }).catch((err) => {
+      console.error(err);
+    })
   }
 
   return (

@@ -9,7 +9,7 @@ const Results: React.FC<IResultsProps> = (props) => {
     return (
         <div>
             {
-                props.results.map(() => <Result />)
+                props.results.map((result: any) => <Result result={result} key={result.mal_id} />)
             }
         </div>
     )
