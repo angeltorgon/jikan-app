@@ -82,7 +82,10 @@ const App: React.FC<{}> = () => {
   return (
     <div className="App">
       <header>
-        <Typography variant="h2" component="h1">Find My Anime</Typography>
+        <div className="title">
+          <img className="logo" src={require("./images/Watching_Anime-512.png")} alt="dude watching anime"/>
+          <Typography variant="h2" component="h1">Find My Anime</Typography>
+        </div>
         <form onSubmit={handleSubmit}>
         <FormControl variant="filled" className={classes.formControl}>
             <InputLabel id="demo-simple-select-filled-label">Category</InputLabel>
