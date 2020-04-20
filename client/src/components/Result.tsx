@@ -11,9 +11,9 @@ const Result: React.FC<IResultProps> = ({result}) => {
     return (
         <Paper className="paper" elevation={3}>
             <img src={result.image_url} alt=""/>
-            <div>
+            <div className="info-container">
                 <h2>{result.title}</h2>
-                <div className="info-container" >
+                <div>
                     <p>Rating: {result.score}</p>
                     {result.volumes ? <p>Volumes: {result.volumes}</p> : null}
                     {result.chapters ? <p>Chapters: {result.chapters}</p> : null}

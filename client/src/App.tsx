@@ -41,25 +41,38 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const App: React.FC<{}> = () => {
   const [ input, setInput ] = useState<string>("");
-  const [ category, setCategory ] = useState("");
+  const [ category, setCategory ] = useState("anime");
   const [ results, setResults ] = useState<[]>([]);
   const classes = useStyles();
 
-  const handleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-  }
+  useEffect(() => {
+    const requestURL = `https://api.jikan.moe/v3/top/anime`
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const requestURL = `https://api.jikan.moe/v3/search/${category}?q=${input}&page=1`
-    console.log(requestURL)
-    axios.get(`https://api.jikan.moe/v3/search/${category}?q=${input}&page=1`)
+    axios.get(requestURL)
     .then((res) => {
-      console.log(res.data.results)
-      setResults(res.data.results);
+      console.log(res.data.top)
+      setResults(res.data.top);
     }).catch((err) => {
       console.error(err);
     })
+  },[])
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if(input.length > 0) {
+      const requestURL = `https://api.jikan.moe/v3/search/${category}?q=${input}&page=1`
+
+      axios.get(requestURL)
+      .then((res) => {
+        setResults(res.data.results);
+      }).catch((err) => {
+        console.error(err);
+      })
+    }
+  }
+
+  const handleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
   }
 
   const handleSelect = (e: any) => {
