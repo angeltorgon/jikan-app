@@ -69,7 +69,7 @@ const App: React.FC<{}> = () => {
   return (
     <div className="App">
       <header>
-        <Typography variant="h2" component="h1">Anime Finder</Typography>
+        <Typography variant="h2" component="h1">Find My Anime</Typography>
         <form onSubmit={handleSubmit}>
         <FormControl variant="filled" className={classes.formControl}>
             <InputLabel id="demo-simple-select-filled-label">Category</InputLabel>
