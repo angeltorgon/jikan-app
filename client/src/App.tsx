@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Switch, Route } from 'react-router-dom';
+import Home from './views/Home';
+import ResultView from './views/ResultView';
 import './App.css';
 
 import { Typography, Button, TextField } from '@material-ui/core';
@@ -7,7 +10,6 @@ import { Typography, Button, TextField } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
@@ -86,6 +88,10 @@ const App: React.FC<{}> = () => {
           <img className="logo" src={require("./images/Watching_Anime-512.png")} alt="dude watching anime"/>
           <Typography variant="h2" component="h1">Find My Anime</Typography>
         </div>
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/result" component={ResultView} />
+        </Switch>
         <form onSubmit={handleSubmit}>
         <FormControl variant="filled" className={classes.formControl}>
             <InputLabel id="demo-simple-select-filled-label">Category</InputLabel>
@@ -112,7 +118,7 @@ const App: React.FC<{}> = () => {
               label="Search"
               className={classes.search}
               type="text" />
-            <Button className={classes.button} variant="contained" type="submit">Search</Button>
+            <Button className={classes.button} variant="contained" type="submit" color="primary">Search</Button>
           </FormControl>
         </form>
       </header>

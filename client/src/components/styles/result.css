@@ -11,6 +11,14 @@
     width: 600px;
     min-height: 400px;
     display: flex;
+    cursor: pointer;
+    transition: .1s ease-in-out;
+}
+
+.paper:hover {
+    transition: .1s ease-in-out;
+    transform: scale(1.005);
+    color: darkgrey;
 }
 
 .info-container {
