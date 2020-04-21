@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ResultHeader from '../components/ResultHeader';
+import TrailerVideo from '../components/TrailerVideo';
 import axios from 'axios';
 
 const ResultView: React.FC<any> = (props) => {
@@ -25,7 +26,7 @@ const ResultView: React.FC<any> = (props) => {
                 background={details.background}
                 status={details.status}
                 rating={details.rating}/>
-
+                <TrailerVideo videoURL={details.trailer_url} synopsis={details.synopsis}/>
         </div>
     )
 }
