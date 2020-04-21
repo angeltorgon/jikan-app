@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './views/Home';
 import ResultView from './views/ResultView';
+import { useLocation } from "react-router-dom";
 import './App.css';
 
 import { Typography } from '@material-ui/core';
 
 const App: React.FC<{}> = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className="App">
