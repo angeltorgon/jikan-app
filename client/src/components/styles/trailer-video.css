@@ -1,0 +1,18 @@
+.trailer-video-container {
+    display: flex;
+    padding: 20px;
+}
+
+.video {
+    max-width: 600px;
+    height: 600px;
+}
+
+.paper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}

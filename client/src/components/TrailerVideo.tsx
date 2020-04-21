@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import { Paper } from '@material-ui/core';
+
+import './styles/trailer-video.css';
 
 interface ITrailerVideoProps {
     videoURL: string;
@@ -10,11 +13,11 @@ const TrailerVideo: React.FC<ITrailerVideoProps> = ({
     synopsis
 }) => {
     return (
-        <div>
-            <iframe width="520" height="415"
-                src={`${videoURL}`}>
-            </iframe>
-            <p>{synopsis}</p>
+        <div className="trailer-video-container">
+            <Paper className="paper">
+                    <iframe className="video" width="520" height="415" src={`${videoURL}`}/>
+                    <p>{synopsis}</p>
+            </Paper>
         </div>
     )
 }

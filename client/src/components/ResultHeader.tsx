@@ -1,6 +1,8 @@
 import React from 'react';
 import { Paper } from '@material-ui/core';
 
+import './styles/result-header.css'
+
 interface IResultHeaderProps {
     title: string;
     imageUrl: string;
@@ -22,21 +24,15 @@ const ResultHeader: React.FC<IResultHeaderProps> = ({
 }) => {
     return (
         <Paper>
-            <div className="info-container">
-            <img src={imageUrl} alt=""/>
-                <div>
+            <div className="result-info-container">
+                <img className="result-header-image" src={imageUrl} alt="anime cover"/>
+                <div className="result-info">
                     <h2>{title}</h2>
                     <p>Status: {status}</p>
                     <p>Rank: {rank}</p>
                     <p>Rating: {rating}</p>
                     {episodes ? <p>Episodes: {episodes}</p> : null}
                     <p>Background: {background}</p>
-                    {/* {result.volumes ? <p>Volumes: {result.volumes}</p> : null} */}
-                    {/* {result.chapters ? <p>Chapters: {result.chapters}</p> : null} */}
-                    {/* <p>{result.synopsis}</p> */}
-                    {/* <p>Started: {result.start_date}</p> */}
-                    {/* <p>Ended: {result.end_date}</p> */}
-                    {/* <a href={result.url}>View</a> */}
                 </div>
             </div> 
         </Paper>
