@@ -17,8 +17,13 @@ const ResultView: React.FC<any> = (props) => {
 
     return (
         <div>
-            <ResultHeader title={details.title}/>
-            
+            <ResultHeader 
+                rank={details.rank}
+                imageUrl={details.image_url} 
+                title={details.title}
+                episodes={details.episodes}
+                rating={details.rating}/>
+
         </div>
     )
 }
