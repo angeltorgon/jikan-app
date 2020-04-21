@@ -21,5 +21,12 @@
 
 .result-header-paper {
     padding: 10px;
+    width: 100%;
+    display: flex;
 }
 
+@media (max-width: 700px){
+    .result-header-paper {
+        flex-direction: column;
+    }
+}
