@@ -7,6 +7,8 @@ interface IResultHeaderProps {
     rank: number;
     episodes: number;
     rating: string;
+    status: string;
+    background: string;
 }
 
 const ResultHeader: React.FC<IResultHeaderProps> = ({
@@ -14,7 +16,9 @@ const ResultHeader: React.FC<IResultHeaderProps> = ({
     imageUrl,
     rank,
     rating,
-    episodes
+    episodes,
+    status,
+    background
 }) => {
     return (
         <Paper>
@@ -22,9 +26,11 @@ const ResultHeader: React.FC<IResultHeaderProps> = ({
             <img src={imageUrl} alt=""/>
                 <div>
                     <h2>{title}</h2>
+                    <p>Status: {status}</p>
                     <p>Rank: {rank}</p>
                     <p>Rating: {rating}</p>
                     {episodes ? <p>Episodes: {episodes}</p> : null}
+                    <p>Background: {background}</p>
                     {/* {result.volumes ? <p>Volumes: {result.volumes}</p> : null} */}
                     {/* {result.chapters ? <p>Chapters: {result.chapters}</p> : null} */}
                     {/* <p>{result.synopsis}</p> */}

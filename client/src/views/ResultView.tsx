@@ -22,6 +22,8 @@ const ResultView: React.FC<any> = (props) => {
                 imageUrl={details.image_url} 
                 title={details.title}
                 episodes={details.episodes}
+                background={details.background}
+                status={details.status}
                 rating={details.rating}/>
 
         </div>
