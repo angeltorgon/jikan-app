@@ -20,18 +20,28 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-around",
+      [theme.breakpoints.down('sm')]: {
+        flexDirection: "column"
+      }
     },
     selectEmpty: {
       marginTop: theme.spacing(2),
     },
     select: {
-      width: "70%"
+      width: "70%",
+      [theme.breakpoints.down('sm')]: {
+        width: "100%"
+      },
     },
     search: {
       width: "100%"
     },
     button: {
-      width: "70%"
+      width: "70%",
+      [theme.breakpoints.down('sm')]: {
+        width: "100%",
+        marginTop: "10px"
+      },
     }
   }),
 );
@@ -79,7 +89,6 @@ export default function Home() {
     return (
         <div>
         <header>
-     >
       <form onSubmit={handleSubmit}>
       <FormControl variant="filled" className={classes.formControl}>
           <InputLabel id="demo-simple-select-filled-label">Category</InputLabel>

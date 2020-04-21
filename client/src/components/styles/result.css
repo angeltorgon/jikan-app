@@ -2,23 +2,31 @@
     width: 450px;
     margin: 10px;
     height: 400px;
-    width: 30%;
+    width: 100%;
 }
 
-.paper {
+.result-paper {
     padding: 10px;
-    margin: 10px;
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     min-height: 400px;
+    min-width: 350px;
     display: flex;
     cursor: pointer;
     transition: .1s ease-in-out;
+    margin-bottom: 20px;
 }
 
-.paper:hover {
+.result-paper:hover {
     transition: .1s ease-in-out;
     transform: scale(1.005);
     color: darkgrey;
+}
+
+@media(max-width: 700px) {
+    .result-paper {
+        flex-direction: column;
+    }
 }
 
 .info-container {

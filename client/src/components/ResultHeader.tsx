@@ -23,8 +23,8 @@ const ResultHeader: React.FC<IResultHeaderProps> = ({
     background
 }) => {
     return (
-        <Paper>
-            <div className="result-info-container">
+        <div className="result-info-container">
+            <Paper className="result-header-paper">
                 <img className="result-header-image" src={imageUrl} alt="anime cover"/>
                 <div className="result-info">
                     <h2>{title}</h2>
@@ -34,8 +34,8 @@ const ResultHeader: React.FC<IResultHeaderProps> = ({
                     {episodes ? <p>Episodes: {episodes}</p> : null}
                     <p>Background: {background}</p>
                 </div>
-            </div> 
-        </Paper>
+            </Paper>
+        </div> 
     )
 };
 
