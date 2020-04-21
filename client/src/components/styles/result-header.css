@@ -4,6 +4,12 @@
     padding: 10px;
 }
 
+@media (max-width: 700px){
+    .result-info-container {
+        flex-direction: column;
+    }
+}
+
 div {
     margin: 10px;
     margin-bottom: 20px;

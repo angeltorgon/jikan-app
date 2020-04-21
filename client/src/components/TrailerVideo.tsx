@@ -15,7 +15,7 @@ const TrailerVideo: React.FC<ITrailerVideoProps> = ({
     return (
         <div className="trailer-video-container">
             <Paper className="paper">
-                    <iframe className="video" width="520" height="415" src={`${videoURL}`}/>
+                    <iframe className="video" height="415" src={`${videoURL}`}/>
                     <p>{synopsis}</p>
             </Paper>
         </div>
