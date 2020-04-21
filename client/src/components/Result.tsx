@@ -21,7 +21,7 @@ const Result: React.FC<IResultProps> = ({result}) => {
                     <p>{result.synopsis}</p>
                     <p>Started: {result.start_date}</p>
                     <p>Ended: {result.end_date}</p>
-                    <a href={result.url}>View</a>
+                    {/* <a href={result.url}>View More</a> */}
                 </div>
             </div>
         </Paper>
