@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import ResultHeader from '../components/ResultHeader';
+import axios from 'axios';
 
-export default function ResultView() {
+const ResultView: React.FC<any> = (props) => {
+    const [ details, setDetails ] = useState<any>({})
+    useEffect(() => {
+        const resultId = props.match.params.id;
+        const rootURL = 'https://api.jikan.moe/v3/'
+        const details = axios.get(`${rootURL}anime/${resultId}`)
+
+        Promise.all([details]).then((res) => {
+            console.log(res)
+            setDetails(res[0].data)
+        })
+    },[]);
+
     return (
         <div>
+            <ResultHeader title={details.title}/>
             
         </div>
     )
 }
+
+export default ResultView;
