@@ -24,9 +24,6 @@ const useStyles = makeStyles((theme: Theme) =>
         flexDirection: "column"
       }
     },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
     select: {
       width: "70%",
       [theme.breakpoints.down('sm')]: {
@@ -35,13 +32,16 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     search: {
       width: "100%",
-      marginTop: "10px"
+      [theme.breakpoints.down('sm')]: {
+        marginTop: "10px"
+      },
     },
     button: {
       width: "70%",
       [theme.breakpoints.down('sm')]: {
         width: "100%",
-        marginTop: "10px"
+        marginTop: "10px",
+        height: "50px",
       },
     }
   }),
