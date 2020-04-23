@@ -101,13 +101,8 @@ export default function Home() {
             variant="outlined"
             className={classes.select}
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
             <MenuItem value={"anime"}>Anime</MenuItem>
             <MenuItem value={"manga"}>Manga</MenuItem>
-            <MenuItem value={"person"}>Person</MenuItem>
-            <MenuItem value={"character"}>Character</MenuItem>
           </Select>
           <TextField 
             variant="outlined" 
