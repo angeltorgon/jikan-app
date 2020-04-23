@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 // COMPONENTS
 import Results from '../components/Results';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import './styles/home.css';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -50,6 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Home() {
     const [ input, setInput ] = useState<string>("");
     const [ category, setCategory ] = useState("anime");
+    const [ currentPage, setCurrentPage ] = useState(1);
     const [ results, setResults ] = useState<[]>([]);
     const classes = useStyles();
   
@@ -68,7 +70,7 @@ export default function Home() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       if(input.length > 0) {
-        const requestURL = `https://api.jikan.moe/v3/search/${category}?q=${input}&page=1`
+        const requestURL = `https://api.jikan.moe/v3/search/${category}?q=${input}&page=${currentPage}`
   
         axios.get(requestURL)
         .then((res) => {
@@ -88,36 +90,41 @@ export default function Home() {
     }
 
     return (
-        <div>
+      <div>
         <header>
-      <form onSubmit={handleSubmit}>
-      <FormControl variant="filled" className={classes.formControl}>
-          <InputLabel id="demo-simple-select-filled-label">Category</InputLabel>
-          <Select
-            labelId="demo-simple-select-filled-label"
-            id="demo-simple-select-filled"
-            value={category}
-            onChange={handleSelect}
-            variant="outlined"
-            className={classes.select}
-          >
-            <MenuItem value={"anime"}>Anime</MenuItem>
-            <MenuItem value={"manga"}>Manga</MenuItem>
-          </Select>
-          <TextField 
-            variant="outlined" 
-            onChange={handleChanges} 
-            value={input} 
-            label="Search"
-            className={classes.search}
-            type="text" />
-          <Button className={classes.button} variant="contained" type="submit" color="primary">Search</Button>
-        </FormControl>
-      </form>
-    </header>
-    <div>
-      <Results results={results}/>
-    </div>
-    </div>
+          <form onSubmit={handleSubmit}>
+            <FormControl variant="filled" className={classes.formControl}>
+              <InputLabel id="demo-simple-select-filled-label">Category</InputLabel>
+              <Select
+                labelId="demo-simple-select-filled-label"
+                id="demo-simple-select-filled"
+                value={category}
+                onChange={handleSelect}
+                variant="outlined"
+                className={classes.select}
+              >
+                  <MenuItem value={"anime"}>Anime</MenuItem>
+                  <MenuItem value={"manga"}>Manga</MenuItem>
+                </Select>
+                  <TextField 
+                    variant="outlined" 
+                    onChange={handleChanges} 
+                    value={input} 
+                    label="Search"
+                    className={classes.search}
+                    type="text" />
+                <Button className={classes.button} variant="contained" type="submit" color="primary">Search</Button>
+            </FormControl>
+          </form>
+        </header>
+      <div>
+        <div className="pagination-container">
+          <p onClick={() => setCurrentPage(1)} className="page-number">1</p>
+          <p onClick={() => setCurrentPage(2)} className="page-number">2</p>
+          <p onClick={() => setCurrentPage(3)} className="page-number">3</p>
+        </div>
+        <Results results={results}/>
+      </div>
+      </div>
     )
 }
