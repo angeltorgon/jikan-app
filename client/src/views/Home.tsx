@@ -6,6 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Pagination from '../components/Pagination';
 
 // COMPONENTS
 import Results from '../components/Results';
@@ -118,11 +119,7 @@ export default function Home() {
           </form>
         </header>
       <div>
-        <div className="pagination-container">
-          <p onClick={() => setCurrentPage(1)} className="page-number">1</p>
-          <p onClick={() => setCurrentPage(2)} className="page-number">2</p>
-          <p onClick={() => setCurrentPage(3)} className="page-number">3</p>
-        </div>
+        <Pagination setCurrentPage={setCurrentPage} />
         <Results results={results}/>
       </div>
       </div>
