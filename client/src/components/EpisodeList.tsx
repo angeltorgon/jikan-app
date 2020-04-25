@@ -1,6 +1,5 @@
 import React from 'react';
 import EpisodeCard from './EpisodeCard';
-import { Paper } from '@material-ui/core';
 
 import './styles/episode-list.css';
 

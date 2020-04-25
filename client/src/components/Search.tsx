@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
+import React from 'react';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import './styles/search.css';
 
 // COMPONENTS
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';

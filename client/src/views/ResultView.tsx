@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ResultHeader from '../components/ResultHeader';
 import EpisodeList from '../components/EpisodeList';
+import AnimeTabs from '../components/AnimeTabs';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
 
@@ -39,15 +40,20 @@ const ResultView: React.FC<any> = (props) => {
     return (
         <div className="result-view-container">
             <div className="result-wrapper">
-                <ResultHeader 
-                    rank={details.rank}
-                    imageUrl={details.image_url} 
-                    title={details.title}
-                    episodes={details.episodes}
-                    background={details.synopsis}
-                    status={details.status}
-                    rating={details.rating}/>
-                <EpisodeList episodes={episodes}/>
+                <div>
+                    <ResultHeader 
+                        rank={details.rank}
+                        imageUrl={details.image_url} 
+                        title={details.title}
+                        episodes={details.episodes}
+                        background={details.synopsis}
+                        status={details.status}
+                        rating={details.rating}/>
+                </div>
+                <div>
+                    <AnimeTabs />
+                    <EpisodeList episodes={episodes}/>
+                </div>
             </div>
         </div>
     )

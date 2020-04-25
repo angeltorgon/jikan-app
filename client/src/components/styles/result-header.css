@@ -34,7 +34,6 @@
     opacity: .9;
     color: white;
     border-radius: 5px;
-    max-height: 1300px;
 }
 
 @media (max-width: 800px){

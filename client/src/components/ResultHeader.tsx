@@ -32,7 +32,9 @@ const ResultHeader: React.FC<IResultHeaderProps> = ({
                     <p className="info-item"><strong>Rank:</strong>  {rank}</p>
                     <p className="info-item"><strong>Rating:</strong>  {rating}</p>
                     {episodes ? <p className="info-item"><strong>Episodes: </strong>  {episodes}</p> : null}
-                    <p className="info-item-background"><strong>Background: </strong><br/> {background}</p>
+                    <div>
+                        <p className="info-item-background"><strong>Background: </strong><br/> {background}</p>
+                    </div>
                 </div>
             </div>
         </div> 
