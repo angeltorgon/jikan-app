@@ -28,11 +28,11 @@ const ResultHeader: React.FC<IResultHeaderProps> = ({
                 <img className="result-header-image" src={imageUrl} alt="anime cover"/>
                 <div className="result-info">
                     <h2>{title}</h2>
-                    <p>Status: {status}</p>
-                    <p>Rank: {rank}</p>
-                    <p>Rating: {rating}</p>
-                    {episodes ? <p>Episodes: {episodes}</p> : null}
-                    <p>Background: {background}</p>
+                    <p className="info-item"><strong>Status:</strong>  {status}</p>
+                    <p className="info-item"><strong>Rank:</strong>  {rank}</p>
+                    <p className="info-item"><strong>Rating:</strong>  {rating}</p>
+                    {episodes ? <p className="info-item"><strong>Episodes: </strong>  {episodes}</p> : null}
+                    <p className="info-item-background"><strong>Background: </strong><br/> {background}</p>
                 </div>
             </Paper>
         </div> 

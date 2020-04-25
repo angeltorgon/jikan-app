@@ -1,0 +1,14 @@
+.result-view-container {
+    padding: 20px;
+    height: 100%;
+}
+
+.result-wrapper {
+    display: flex;
+}
+
+@media (max-width: 700px){
+    .result-wrapper {
+        flex-direction: column;
+    }
+}
