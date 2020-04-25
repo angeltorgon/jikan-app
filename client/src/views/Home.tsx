@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Search from "../components/Search";
+import Results from "../components/Results";
 import Loader from "react-loader-spinner";
 
 // COMPONENTS
@@ -15,19 +16,6 @@ const Home: React.FC<any> = (props) => {
     const [input, setInput] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    useEffect(() => {
-        const requestURL = `https://api.jikan.moe/v3/top/anime`;
-
-        axios
-            .get(requestURL)
-            .then((res) => {
-                setResults(res.data.top);
-            })
-            .catch((err) => {
-                console.error(err);
-            });
-    }, []);
-
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (input.length > 0) {
@@ -38,7 +26,6 @@ const Home: React.FC<any> = (props) => {
                 .then((res) => {
                     setResults(res.data.results);
                     setIsLoading(false);
-                    props.history.push("/results");
                 })
                 .catch((err) => {
                     console.error(err);
@@ -58,19 +45,22 @@ const Home: React.FC<any> = (props) => {
                     color="red"
                     height={100}
                     width={100}
-                    timeout={3000} //3 secs
+                    timeout={5000} //3 secs
                 />
             </div>
         );
     }
 
     return (
-        <div className="home-container">
+        <div className={`home-container ${results.length > 0 ? "home-container-results" : null}`}>
+          <div>
             <Search
                 input={input}
                 setInput={setInput}
                 handleSubmit={handleSubmit}
             />
+          </div>
+            {results.length > 0 ? <Results results={results}/> : null}
         </div>
     );
 };
