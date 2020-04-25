@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import ResultHeader from '../components/ResultHeader';
 import TrailerVideo from '../components/TrailerVideo';
 import axios from 'axios';
+import Loader from "react-loader-spinner";
 
 import "./styles/result-view.css";
 
 const ResultView: React.FC<any> = (props) => {
-    const [ details, setDetails ] = useState<any>({})
+    const [ details, setDetails ] = useState<any>(null)
     useEffect(() => {
         const resultId = props.match.params.id;
         const rootURL = 'https://api.jikan.moe/v3/'
@@ -18,6 +19,20 @@ const ResultView: React.FC<any> = (props) => {
             setDetails(res[0].data)
         })
     },[]);
+
+    if (details === null) {
+        return (
+            <div className="home-container">
+                <Loader
+                    type="TailSpin"
+                    color="red"
+                    height={100}
+                    width={100}
+                    timeout={5000} //3 secs
+                />
+            </div>
+        );
+    }
 
     return (
         <div className="result-view-container">
