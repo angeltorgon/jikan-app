@@ -60,6 +60,16 @@ header {
   margin: 30px auto; 
 }
 
+.card-link {
+  background-color: snow;
+  color: black;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

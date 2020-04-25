@@ -11,8 +11,8 @@ const EpisodeCard: React.FC<any> = ({episode}) => {
                 <div className="episode-info">
                     <p className="episode-info">Episode: {episode.episode_id}</p>
                     <p className="episode-info">Aired: {moment(episode.aired).format("LL")}</p>
-                    <a href={`${episode.forum_url}`}>Visit Forum</a> 
-                    <a href={`${episode.video_url}`}>View Video</a> 
+                    <a className="card-link" href={`${episode.forum_url}`}>Visit Forum</a> 
+                    <a className="card-link" href={`${episode.video_url}`}>View Video</a> 
                 </div>
             </div>
         </div>

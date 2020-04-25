@@ -1,0 +1,15 @@
+.author-image {
+    width: 50px;
+}
+
+.article-info-container {
+    margin: 5px;
+    display: flex;
+}
+
+.article-info {
+    margin: 10px;
+    display: flex;
+}
+
+
