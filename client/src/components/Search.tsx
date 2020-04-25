@@ -30,12 +30,17 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     search: {
       width: "100%",
+      backgroundColor: "white",
+      fontSize: "1.3rem",
+      borderRadius: "5px",
       [theme.breakpoints.down('sm')]: {
         marginTop: "10px"
       },
     },
     button: {
       width: "70%",
+      backgroundColor: "black",
+      fontSize: "1.3rem",
       [theme.breakpoints.down('sm')]: {
         width: "100%",
         marginTop: "10px",
@@ -48,42 +53,24 @@ const useStyles = makeStyles((theme: Theme) =>
 const Search: React.FC<any> = ({ 
   handleSubmit, 
   input, 
-  setInput, 
-  category, 
-  setCategory }) => {
+  setInput}) => {
     const classes = useStyles();
 
     const handleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
       setInput(e.target.value);
-    }
-  
-    const handleSelect = (e: any) => {
-      setCategory(e.target.value);
     }
 
     return (
         <div>
           <form onSubmit={handleSubmit}>
             <FormControl variant="filled" className={classes.formControl}>
-              <InputLabel id="demo-simple-select-filled-label">Category</InputLabel>
-              <Select
-                labelId="demo-simple-select-filled-label"
-                id="demo-simple-select-filled"
-                value={category}
-                onChange={handleSelect}
-                variant="outlined"
-                className={classes.select}
-              >
-                  <MenuItem value={"anime"}>Anime</MenuItem>
-                  <MenuItem value={"manga"}>Manga</MenuItem>
-                </Select>
-                  <TextField 
-                    variant="outlined" 
-                    onChange={handleChanges} 
-                    value={input} 
-                    label="Search"
-                    className={classes.search}
-                    type="text" />
+              <TextField 
+                variant="outlined" 
+                onChange={handleChanges} 
+                value={input} 
+                label="Search"
+                className={classes.search}
+                type="text" />
                 <Button className={classes.button} variant="contained" type="submit" color="primary">Search</Button>
             </FormControl>
           </form>
