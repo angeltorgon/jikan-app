@@ -1,0 +1,94 @@
+import React, { useState } from 'react'
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+// COMPONENTS
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
+      width: "600px",
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-around",
+      [theme.breakpoints.down('sm')]: {
+        flexDirection: "column"
+      }
+    },
+    select: {
+      width: "70%",
+      [theme.breakpoints.down('sm')]: {
+        width: "100%"
+      },
+    },
+    search: {
+      width: "100%",
+      [theme.breakpoints.down('sm')]: {
+        marginTop: "10px"
+      },
+    },
+    button: {
+      width: "70%",
+      [theme.breakpoints.down('sm')]: {
+        width: "100%",
+        marginTop: "10px",
+        height: "50px",
+      },
+    }
+  }),
+);
+
+const Search: React.FC<any> = ({ 
+  handleSubmit, 
+  input, 
+  setInput, 
+  category, 
+  setCategory }) => {
+    const classes = useStyles();
+
+    const handleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setInput(e.target.value);
+    }
+  
+    const handleSelect = (e: any) => {
+      setCategory(e.target.value);
+    }
+
+    return (
+        <div>
+          <form onSubmit={handleSubmit}>
+            <FormControl variant="filled" className={classes.formControl}>
+              <InputLabel id="demo-simple-select-filled-label">Category</InputLabel>
+              <Select
+                labelId="demo-simple-select-filled-label"
+                id="demo-simple-select-filled"
+                value={category}
+                onChange={handleSelect}
+                variant="outlined"
+                className={classes.select}
+              >
+                  <MenuItem value={"anime"}>Anime</MenuItem>
+                  <MenuItem value={"manga"}>Manga</MenuItem>
+                </Select>
+                  <TextField 
+                    variant="outlined" 
+                    onChange={handleChanges} 
+                    value={input} 
+                    label="Search"
+                    className={classes.search}
+                    type="text" />
+                <Button className={classes.button} variant="contained" type="submit" color="primary">Search</Button>
+            </FormControl>
+          </form>
+        </div>
+    )
+}
+
+export default Search
