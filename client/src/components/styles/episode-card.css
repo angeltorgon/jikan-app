@@ -1,11 +1,15 @@
 .episode-card-container {
-    width: 100%;
     margin: 5px 0;
     padding: 10px;
     background-color: rgb(78, 0, 0);
     opacity: .9;
     color: white;
     border-radius: 5px;
+    width: 100%;
+}
+
+.episode-wrapper {
+    width: 100%;
 }
 
 a {

@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import EpisodeCard from './EpisodeCard';
+import ArticleCard from './ArticleCard';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
 
 const NewsList: React.FC<any> = ({resultId}) => {
     const rootURL = 'https://api.jikan.moe/v3/'
-    const [ news, setNews ] = useState<any>([])
+    const [ articles, setArticles ] = useState<any>([])
 
     useEffect(() => {
-        const fetchedEpisodes = axios.get(`${rootURL}anime/${resultId}/news`)
+        const fetchedArticles = axios.get(`${rootURL}anime/${resultId}/news`)
 
-        Promise.all([ fetchedEpisodes  ]).then((res) => {
+        Promise.all([ fetchedArticles ]).then((res) => {
             console.log(res)
-            setNews(res[0].data.articles)
+            setArticles(res[0].data.articles)
         })
 
     },[])
 
-    if (news.length === 0) {
+    if (articles.length === 0) {
         return (
             <div className="loader-container">
                 <Loader
@@ -33,7 +33,9 @@ const NewsList: React.FC<any> = ({resultId}) => {
 
     return (
         <div>
-            
+            <div>
+                {articles.map((article:any) => <ArticleCard article={article} />)}
+            </div> 
         </div>
     )
 }

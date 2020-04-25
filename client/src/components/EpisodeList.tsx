@@ -19,7 +19,6 @@ const EpisodeList: React.FC<ITrailerVideoProps> = ({ resultId }) => {
         const fetchedEpisodes = axios.get(`${rootURL}anime/${resultId}/episodes`)
 
         Promise.all([ fetchedEpisodes  ]).then((res) => {
-            console.log(res)
             setIsLoading(false)
             setEpisodes(res[0].data.episodes)
         })
@@ -50,7 +49,7 @@ const EpisodeList: React.FC<ITrailerVideoProps> = ({ resultId }) => {
 
     return (
         <div className="episode-list-container">
-            <div className="paper">
+            <div>
                 {episodes.map((episode:any) => <EpisodeCard episode={episode} />)}
             </div>
         </div>
