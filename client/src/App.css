@@ -1,13 +1,13 @@
 .App {
   text-align: center;
   margin: 0;
-  height: 100vh;
   background-image: url("https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80");
-  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: .3s ease-in-out;
+  background-size: cover;
+  height: 100vh;
+  overflow: scroll;
 }
 
 .App-logo {

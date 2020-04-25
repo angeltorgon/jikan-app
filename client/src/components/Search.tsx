@@ -12,34 +12,33 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     formControl: {
-      margin: theme.spacing(1),
       display: "flex",
       minWidth: "350px",
       flexDirection: "row",
+      margin: "20px",
       justifyContent: "space-around",
       [theme.breakpoints.down('sm')]: {
         flexDirection: "column"
       }
     },
-    select: {
-      width: "70%",
-      [theme.breakpoints.down('sm')]: {
-        width: "100%"
-      },
-    },
     search: {
-      width: "100%",
+      width: "400px",
       backgroundColor: "white",
       fontSize: "1.3rem",
+      marginRight: "20px",
       borderRadius: "5px",
       [theme.breakpoints.down('sm')]: {
-        marginTop: "10px"
+        marginTop: "10px",
+        marginRight: "0px",
       },
     },
     button: {
-      width: "70%",
+      width: "200px",
       backgroundColor: "black",
       fontSize: "1.3rem",
+      "&:hover": {
+        backgroundColor: "maroon",
+      },
       [theme.breakpoints.down('sm')]: {
         width: "100%",
         marginTop: "10px",
