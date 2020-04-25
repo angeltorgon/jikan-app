@@ -1,7 +1,8 @@
 import React from 'react';
+import EpisodeCard from './EpisodeCard';
 import { Paper } from '@material-ui/core';
 
-import './styles/trailer-video.css';
+import './styles/episode-list.css';
 
 interface ITrailerVideoProps {
     episodes: Array<any>
@@ -12,9 +13,9 @@ const EpisodeList: React.FC<ITrailerVideoProps> = ({
 }) => {
     return (
         <div className="trailer-video-container">
-            <Paper className="paper">
-                {episodes.map((episode) => <p>{episode.title}</p>)}
-            </Paper>
+            <div className="paper">
+                {episodes.map((episode) => <EpisodeCard episode={episode} />)}
+            </div>
         </div>
     )
 }

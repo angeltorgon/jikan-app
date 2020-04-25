@@ -1,6 +1,7 @@
 .result-info-container {
     display: flex;
     flex-direction: row;
+    max-height: 1000px;
 }
 
 @media (max-width: 700px){
