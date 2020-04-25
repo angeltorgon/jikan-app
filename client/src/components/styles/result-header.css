@@ -1,7 +1,6 @@
 .result-info-container {
     display: flex;
     flex-direction: row;
-    max-height: 1000px;
 }
 
 @media (max-width: 800px){
@@ -35,12 +34,12 @@
     opacity: .8;
     color: white;
     border-radius: 5px;
+    max-height: 1300px;
 }
 
 @media (max-width: 800px){
     .result-header-paper {
         max-width: 100%;
-        margin-bottom: 20px;
     }
 }
 
