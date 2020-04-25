@@ -12,7 +12,7 @@ const EpisodeList: React.FC<ITrailerVideoProps> = ({
     episodes,
 }) => {
     return (
-        <div className="trailer-video-container">
+        <div className="episode-list-container">
             <div className="paper">
                 {episodes.map((episode) => <EpisodeCard episode={episode} />)}
             </div>
