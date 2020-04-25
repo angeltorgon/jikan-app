@@ -5,8 +5,7 @@
 
 .result-paper {
     padding: 10px;
-    max-width: 600px;
-    width: 500px;
+    max-width: 800px;
     min-height: 400px;
     min-width: 350px;
     display: flex;
@@ -14,6 +13,10 @@
     transition: .1s ease-in-out;
     margin-bottom: 20px;
     margin: 5px;
+    background-color: rgb(78, 0, 0);
+    opacity: .9;
+    color: white;
+    border-radius: 5px
 }
 
 .result-paper:hover {
@@ -22,11 +25,12 @@
     color: darkgrey;
 }
 
-@media(max-width: 700px) {
+@media(max-width: 800px) {
     .result-paper {
         flex-direction: column;
         flex-wrap: nowrap;
         width: 100%;
+        max-width: 800px;
     }
 }
 

@@ -10,7 +10,7 @@ interface IResultProps {
 
 const Result: React.FC<IResultProps> = ({result}) => {
     return (
-        <Paper className="result-paper" elevation={3}>
+        <div className="result-paper" >
             <img src={result.image_url} alt=""/>
             <div className="info-container">
                 <h2>{result.title}</h2>
@@ -25,7 +25,7 @@ const Result: React.FC<IResultProps> = ({result}) => {
                     {/* <a href={result.url}>View More</a> */}
                 </div>
             </div>
-        </Paper>
+        </div>
     )
 }
 
