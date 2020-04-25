@@ -5,7 +5,7 @@ import './styles/episode-card.css';
 
 const EpisodeCard: React.FC<any> = ({episode}) => {
     return (
-        <Paper className="episode-card-container" elevation={3}>
+        <div className="episode-card-container" >
             <h2>{episode.title}</h2>
             <div className="episode-info">
                 <p className="episode-info">Episode: {episode.episode_id}</p>
@@ -13,7 +13,7 @@ const EpisodeCard: React.FC<any> = ({episode}) => {
                 <a href={`${episode.forum_url}`}>Visit Forum</a> 
                 <a href={`${episode.video_url}`}>View Video</a> 
             </div>
-        </Paper>
+        </div>
     )
 }
 

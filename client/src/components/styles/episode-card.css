@@ -2,6 +2,14 @@
     width: 100%;
     margin: 5px 0;
     padding: 10px;
+    background-color: rgb(78, 0, 0);
+    opacity: .9;
+    color: white;
+    border-radius: 5px;
+}
+
+a {
+    color: white;
 }
 
 .episode-info {
@@ -14,10 +22,7 @@
     .episode-info {
         flex-direction: column;
         justify-content: flex-start;
-        align-items: flex-start;
-    }
-
-    .episode-info {
         margin: 5px 0;
+        align-items: flex-start;
     }
 }

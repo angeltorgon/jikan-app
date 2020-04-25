@@ -31,6 +31,17 @@
     flex-direction: column;
     min-width: 300px;
     max-width: 350px;
+    background-color: rgb(78, 0, 0);
+    opacity: .8;
+    color: white;
+    border-radius: 5px;
+}
+
+@media (max-width: 800px){
+    .result-header-paper {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
 }
 
 .info-item {
@@ -47,8 +58,3 @@
     align-items: flex-start;
 }
 
-@media (max-width: 800px){
-    .result-header-paper {
-        max-width: 100%;
-    }
-}
