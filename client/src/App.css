@@ -47,8 +47,17 @@ header {
   height: 70px;
 }
 
-input {
+.loader-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-results-message {
   color: white;
+  margin: 30px auto; 
 }
 
 @keyframes App-logo-spin {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ResultHeader from '../components/ResultHeader';
 import EpisodeList from '../components/EpisodeList';
+import NewsList from '../components/NewsList';
 import AnimeTabs from '../components/AnimeTabs';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
@@ -9,17 +10,15 @@ import "./styles/result-view.css";
 
 const ResultView: React.FC<any> = (props) => {
     const [ details, setDetails ] = useState<any>(null)
-    const [ episodes, setEpisodes ] = useState<any>([])
+    const [ currentTab, setCurrentTab ] = useState<string>("episodes")
+    const resultId = props.match.params.id;
+
     useEffect(() => {
-        const resultId = props.match.params.id;
         const rootURL = 'https://api.jikan.moe/v3/'
         const details = axios.get(`${rootURL}anime/${resultId}`)
-        const episodes = axios.get(`${rootURL}anime/${resultId}/episodes`)
 
-        Promise.all([details, episodes]).then((res) => {
-            console.log(res)
+        Promise.all([details]).then((res) => {
             setDetails(res[0].data)
-            setEpisodes(res[1].data.episodes)
         })
     },[]);
 
@@ -51,8 +50,9 @@ const ResultView: React.FC<any> = (props) => {
                         rating={details.rating}/>
                 </div>
                 <div>
-                    <AnimeTabs />
-                    <EpisodeList episodes={episodes}/>
+                    <AnimeTabs setCurrentTab={setCurrentTab} />
+                    { currentTab === "episodes" && <EpisodeList resultId={resultId}/>}
+                    { currentTab === "news" && <NewsList resultId={resultId}/>}
                 </div>
             </div>
         </div>
