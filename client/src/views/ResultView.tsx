@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ResultHeader from '../components/ResultHeader';
-import TrailerVideo from '../components/TrailerVideo';
+import EpisodeList from '../components/EpisodeList';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
 
@@ -8,15 +8,17 @@ import "./styles/result-view.css";
 
 const ResultView: React.FC<any> = (props) => {
     const [ details, setDetails ] = useState<any>(null)
+    const [ episodes, setEpisodes ] = useState<any>([])
     useEffect(() => {
         const resultId = props.match.params.id;
         const rootURL = 'https://api.jikan.moe/v3/'
         const details = axios.get(`${rootURL}anime/${resultId}`)
-        const espisodes = axios.get(`${rootURL}anime/${resultId}/episodes`)
+        const episodes = axios.get(`${rootURL}anime/${resultId}/episodes`)
 
-        Promise.all([details, espisodes]).then((res) => {
+        Promise.all([details, episodes]).then((res) => {
             console.log(res)
             setDetails(res[0].data)
+            setEpisodes(res[1].data.episodes)
         })
     },[]);
 
@@ -45,7 +47,7 @@ const ResultView: React.FC<any> = (props) => {
                     background={details.synopsis}
                     status={details.status}
                     rating={details.rating}/>
-                <TrailerVideo videoURL={details.trailer_url} synopsis={details.synopsis}/>
+                <EpisodeList episodes={episodes}/>
             </div>
         </div>
     )

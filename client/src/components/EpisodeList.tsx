@@ -4,22 +4,19 @@ import { Paper } from '@material-ui/core';
 import './styles/trailer-video.css';
 
 interface ITrailerVideoProps {
-    videoURL: string;
-    synopsis: string;
+    episodes: Array<any>
 }
 
-const TrailerVideo: React.FC<ITrailerVideoProps> = ({
-    videoURL,
-    synopsis
+const EpisodeList: React.FC<ITrailerVideoProps> = ({
+    episodes,
 }) => {
     return (
         <div className="trailer-video-container">
             <Paper className="paper">
-                    <iframe className="video" height="415" src={`${videoURL}`}/>
-                    <p>{synopsis}</p>
+                {episodes.map((episode) => <p>{episode.title}</p>)}
             </Paper>
         </div>
     )
 }
 
-export default TrailerVideo;
+export default EpisodeList;
