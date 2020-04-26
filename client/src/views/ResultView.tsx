@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ResultHeader from '../components/ResultHeader';
 import EpisodeList from '../components/EpisodeList';
-import NewsList from '../components/NewsList';
+import ArticleList from '../components/ArticleList';
+import PictureList from '../components/PictureList';
 import AnimeTabs from '../components/AnimeTabs';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
@@ -52,7 +53,8 @@ const ResultView: React.FC<any> = (props) => {
                 <div>
                     <AnimeTabs setCurrentTab={setCurrentTab} />
                     { currentTab === "episodes" && <EpisodeList resultId={resultId}/>}
-                    { currentTab === "news" && <NewsList resultId={resultId}/>}
+                    { currentTab === "news" && <ArticleList resultId={resultId}/>}
+                    { currentTab === "pictures" && <PictureList resultId={resultId}/>}
                 </div>
             </div>
         </div>
