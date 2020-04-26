@@ -1,0 +1,47 @@
+.video-list-container {
+    display: flex;
+    margin: 0 5px;
+    width: 100%;
+}
+
+@media(max-width:700px) {
+    .episode-list-container {
+        padding: 5px 0;
+        margin: 5px 0;
+    }
+}
+
+.video-card-container {
+    margin: 5px;
+    padding: 10px;
+    background-color: rgb(78, 0, 0);
+    opacity: .9;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.episode-wrapper {
+    width: 100%;
+}
+
+.episode-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 800px){
+    .episode-info {
+        flex-direction: column;
+        justify-content: flex-start;
+        margin: 5px 0;
+        align-items: flex-start;
+    }
+}
+
+.episode-link-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}

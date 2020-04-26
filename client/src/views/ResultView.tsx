@@ -3,6 +3,7 @@ import ResultHeader from '../components/ResultHeader';
 import EpisodeList from '../components/EpisodeList';
 import ArticleList from '../components/ArticleList';
 import PictureList from '../components/PictureList';
+import VideoList from '../components/VideoList';
 import AnimeTabs from '../components/AnimeTabs';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
@@ -55,6 +56,7 @@ const ResultView: React.FC<any> = (props) => {
                     { currentTab === "episodes" && <EpisodeList resultId={resultId}/>}
                     { currentTab === "news" && <ArticleList resultId={resultId}/>}
                     { currentTab === "pictures" && <PictureList resultId={resultId}/>}
+                    { currentTab === "videos" && <VideoList resultId={resultId}/>}
                 </div>
             </div>
         </div>

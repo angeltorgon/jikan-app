@@ -7,18 +7,20 @@ import './styles/picture-card.css';
 const PictureList: React.FC<any> = ({resultId}) => {
     const rootURL = 'https://api.jikan.moe/v3/'
     const [ pictures, setPictures ] = useState<any>([])
+    const [ isLoading, setIsLoading ] = useState<boolean>(false)
 
     useEffect(() => {
+        setIsLoading(true)
         const fetchedPictures = axios.get(`${rootURL}anime/${resultId}/pictures`)
 
         Promise.all([ fetchedPictures ]).then((res) => {
-            console.log(res)
+            setIsLoading(false)
             setPictures(res[0].data.pictures)
         })
 
     },[])
 
-    if (pictures.length === 0) {
+    if (isLoading) {
         return (
             <div className="loader-container">
                 <Loader
@@ -30,6 +32,14 @@ const PictureList: React.FC<any> = ({resultId}) => {
                 />
             </div>
         );
+    }
+
+    if (pictures.length === 0) {
+        return (
+            <div className="picture-list-container">
+                <h2 className="no-results-message">No pictures found...</h2>
+            </div>
+        )
     }
 
     return (

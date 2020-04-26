@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import ArticleCard from './ArticleCard';
+import VideoCard from './VideoCard';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
+import './styles/video-list.css';
 
-const NewsList: React.FC<any> = ({resultId}) => {
+const VideoList: React.FC<any> = ({resultId}) => {
     const rootURL = 'https://api.jikan.moe/v3/'
-    const [ articles, setArticles ] = useState<any>([])
+    const [ videos, setvideos ] = useState<any>([])
     const [ isLoading, setIsLoading ] = useState<boolean>(false)
 
     useEffect(() => {
         setIsLoading(true)
-        const fetchedArticles = axios.get(`${rootURL}anime/${resultId}/news`)
+        const fetchedVideos = axios.get(`${rootURL}anime/${resultId}/videos`)
 
-        Promise.all([ fetchedArticles ]).then((res) => {
+        Promise.all([ fetchedVideos ]).then((res) => {
             setIsLoading(false)
-            setArticles(res[0].data.articles)
+            setvideos(res[0].data.episodes)
         })
 
     },[])
@@ -33,21 +34,21 @@ const NewsList: React.FC<any> = ({resultId}) => {
         );
     }
 
-    if (articles.length === 0) {
+    if (videos.length === 0) {
         return (
             <div className="video-list-container">
-                <h2 className="no-results-message">No articles found...</h2>
+                <h2 className="no-results-message">No videos found...</h2>
             </div>
         )
     }
 
     return (
-        <div>
+        <div className="video-list-container">
             <div>
-                {articles.map((article:any) => <ArticleCard article={article} />)}
-            </div> 
+                {videos.map((video:any) => <VideoCard video={video} />)}
+            </div>
         </div>
     )
 }
 
-export default NewsList;
+export default VideoList;
