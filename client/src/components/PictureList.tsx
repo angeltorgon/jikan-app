@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PictureCard from './PictureCard';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
+import './styles/picture-card.css';
 
 const PictureList: React.FC<any> = ({resultId}) => {
     const rootURL = 'https://api.jikan.moe/v3/'
@@ -32,10 +33,8 @@ const PictureList: React.FC<any> = ({resultId}) => {
     }
 
     return (
-        <div>
-            <div>
-                {pictures.map((picture:any) => <PictureCard picture={picture} />)}
-            </div> 
+        <div className="picture-list-container">
+            {pictures.map((picture:any) => <PictureCard picture={picture} />)}
         </div>
     )
 }

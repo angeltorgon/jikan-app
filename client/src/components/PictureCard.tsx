@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import './styles/picture-card.css';
 
 const PictureCard: React.FC<any> = (props) => {
     return (
-        <div>
-            <img src={props.picture.large}/> 
+        <div className="picture-card-container">
+            <img className="image" src={props.picture.large}/> 
         </div>
     )
 }
