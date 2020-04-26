@@ -1,5 +1,9 @@
 .author-image {
-    width: 50px;
+    width: 100%;
+    max-width: 70px;
+    min-width: 50px;
+    margin: 5px;
+    border-radius: 5px;
 }
 
 .article-info-container {
