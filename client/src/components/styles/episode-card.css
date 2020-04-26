@@ -29,6 +29,6 @@
 
 .episode-link-container {
     display: flex;
-    width: 220px;
+    width: 100%;
     justify-content: space-around;
 }
