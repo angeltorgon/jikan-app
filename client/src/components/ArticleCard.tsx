@@ -11,11 +11,12 @@ const ArticleCard: React.FC<any> = ({article}) => {
                 <p>by <strong>{article.author_name}</strong> - {moment(article.date).format("LL")}</p>
                 <div className="article-info-container">
                     <img className="author-image" src={article.image_url} />
-                    <p className="article-info">{article.intro} <a className="card-link" href={article.url}>View article</a></p>
+                    <p className="article-info">{article.intro} </p>
                     {/* <p className="episode-info">Aired: {moment(articles.aired).format("LL")}</p>
                     <a href={`${episode.forum_url}`}>Visit Forum</a> 
                     <a href={`${episode.video_url}`}>View Video</a>  */}
                 </div>
+                <a className="card-link" href={article.url}>View article</a>
             </div>
         </div>
     )
