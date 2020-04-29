@@ -16,6 +16,7 @@ const VideoList: React.FC<any> = ({resultId}) => {
         Promise.all([ fetchedVideos ]).then((res) => {
             setIsLoading(false)
             setvideos(res[0].data.episodes)
+            console.log(res[0].data.episodes)
         })
 
     },[])
@@ -45,7 +46,7 @@ const VideoList: React.FC<any> = ({resultId}) => {
     return (
         <div className="video-list-container">
             <div>
-                {videos.map((video:any) => <VideoCard video={video} />)}
+                {videos.map((video: Video) => <VideoCard video={video} />)}
             </div>
         </div>
     )

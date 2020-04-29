@@ -1,7 +1,12 @@
 import React from 'react';
 import './styles/video-list.css';
 
+interface IVideCardProps {
+
+}
+
 const VideoCard: React.FC<any> = ({video}) => {
+    console.log("video card props - ", video);
     return (
         <div className="video-card-container">
             <h2>{video.title}</h2>
