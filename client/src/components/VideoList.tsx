@@ -7,7 +7,7 @@ import './styles/video-list.css';
 
 const VideoList: React.FC<any> = ({resultId}) => {
     const rootURL = 'https://api.jikan.moe/v3/'
-    const [ videos, setvideos ] = useState<any>([])
+    const [ videos, setvideos ] = useState<Array<Video>>([])
     const [ isLoading, setIsLoading ] = useState<boolean>(false)
 
     useEffect(() => {
@@ -17,7 +17,6 @@ const VideoList: React.FC<any> = ({resultId}) => {
         Promise.all([ fetchedVideos ]).then((res) => {
             setIsLoading(false)
             setvideos(res[0].data.episodes)
-            console.log(res[0].data.episodes)
         })
 
     },[])
