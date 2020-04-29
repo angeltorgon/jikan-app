@@ -22,6 +22,18 @@ export type Episode = {
     video_url: string;
 }
 
+export type Article = {
+    author_name: string;
+    author_url: string;
+    comments: number;
+    date: string;
+    forum_url: string;
+    image_url: string;
+    intro: string;
+    title: string;
+    url: string;
+}
+
 export interface IVideoCardProps {
     video: Video;
 }
@@ -32,4 +44,8 @@ export interface IPictureCardProps {
 
 export interface IEpisodeCardProps {
     episode: Episode;
+}
+
+export interface IArticleCardProps {
+    article: Article;
 }

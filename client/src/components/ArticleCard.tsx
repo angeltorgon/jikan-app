@@ -1,9 +1,10 @@
 import React from 'react'
 import moment from 'moment';
+import { IArticleCardProps } from '../types.d';
 import './styles/episode-card.css';
 import './styles/article-card.css';
 
-const ArticleCard: React.FC<any> = ({article}) => {
+const ArticleCard: React.FC<IArticleCardProps> = ({ article }) => {
     return (
         <div className="episode-card-container" >
             <div className="episode-wrapper">

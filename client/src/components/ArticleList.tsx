@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ArticleCard from './ArticleCard';
+import { Article } from '../types.d';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
 
 const NewsList: React.FC<any> = ({resultId}) => {
     const rootURL = 'https://api.jikan.moe/v3/'
-    const [ articles, setArticles ] = useState<any>([])
+    const [ articles, setArticles ] = useState<Array<Article>>([])
     const [ isLoading, setIsLoading ] = useState<boolean>(false)
 
     useEffect(() => {
@@ -44,7 +45,7 @@ const NewsList: React.FC<any> = ({resultId}) => {
     return (
         <div>
             <div>
-                {articles.map((article:any) => <ArticleCard article={article} />)}
+                {articles.map((article:Article) => <ArticleCard article={article} />)}
             </div> 
         </div>
     )
