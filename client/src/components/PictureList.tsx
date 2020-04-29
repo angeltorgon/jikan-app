@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import PictureCard from './PictureCard';
+import { Picture } from '../types.d';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
 import './styles/picture-card.css';
 
 const PictureList: React.FC<any> = ({resultId}) => {
     const rootURL = 'https://api.jikan.moe/v3/'
-    const [ pictures, setPictures ] = useState<any>([])
+    const [ pictures, setPictures ] = useState<Array<Picture>>([])
     const [ isLoading, setIsLoading ] = useState<boolean>(false)
 
     useEffect(() => {
@@ -16,6 +17,7 @@ const PictureList: React.FC<any> = ({resultId}) => {
         Promise.all([ fetchedPictures ]).then((res) => {
             setIsLoading(false)
             setPictures(res[0].data.pictures)
+            console.log(res[0].data.pictures)
         })
 
     },[])
@@ -44,7 +46,7 @@ const PictureList: React.FC<any> = ({resultId}) => {
 
     return (
         <div className="picture-list-container">
-            {pictures.map((picture:any) => <PictureCard picture={picture} />)}
+            {pictures.map((picture: Picture) => <PictureCard picture={picture} />)}
         </div>
     )
 }

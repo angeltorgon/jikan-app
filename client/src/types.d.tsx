@@ -5,6 +5,15 @@ export type Video = {
     url: string;
 }
 
+export type Picture = {
+    large: string;
+    small: string;
+}
+
 export interface IVideoCardProps {
     video: Video;
+}
+
+export interface IPictureCardProps {
+    picture: Picture;
 }
