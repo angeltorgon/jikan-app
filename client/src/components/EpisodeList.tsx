@@ -22,7 +22,6 @@ const EpisodeList: React.FC<ITrailerVideoProps> = ({ resultId }) => {
         Promise.all([ fetchedEpisodes  ]).then((res) => {
             setIsLoading(false)
             setEpisodes(res[0].data.episodes)
-            console.log((res[0].data.episodes))
         })
 
     },[])
