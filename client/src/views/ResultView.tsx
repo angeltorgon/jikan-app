@@ -22,7 +22,7 @@ const ResultView: React.FC<any> = (props) => {
         Promise.all([details]).then((res) => {
             setDetails(res[0].data)
         })
-    },[]);
+    },[resultId]);
 
     if (details === null) {
         return (

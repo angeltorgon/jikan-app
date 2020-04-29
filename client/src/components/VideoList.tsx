@@ -19,7 +19,7 @@ const VideoList: React.FC<any> = ({resultId}) => {
             setvideos(res[0].data.episodes)
         })
 
-    },[])
+    },[resultId])
 
     if (isLoading) {
         return (
@@ -46,7 +46,7 @@ const VideoList: React.FC<any> = ({resultId}) => {
     return (
         <div className="video-list-container">
             <div>
-                {videos.map((video: Video) => <VideoCard video={video} />)}
+                {videos.map((video: Video) => <VideoCard key={video.image_url} video={video} />)}
             </div>
         </div>
     )

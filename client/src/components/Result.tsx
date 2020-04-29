@@ -1,5 +1,4 @@
 import React from 'react'
-import { Paper } from '@material-ui/core';
 import moment from 'moment';
 
 import './styles/result.css';

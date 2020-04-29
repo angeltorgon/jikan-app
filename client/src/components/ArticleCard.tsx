@@ -11,7 +11,7 @@ const ArticleCard: React.FC<IArticleCardProps> = ({ article }) => {
                 <h2>{article.title}</h2>
                 <p>by <strong>{article.author_name}</strong> - {moment(article.date).format("LL")}</p>
                 <div className="article-info-container">
-                    <img className="author-image" src={article.image_url} />
+                    <img alt="author" className="author-image" src={article.image_url} />
                     <p className="article-info">{article.intro} </p>
                     {/* <p className="episode-info">Aired: {moment(articles.aired).format("LL")}</p>
                     <a href={`${episode.forum_url}`}>Visit Forum</a> 

@@ -11,7 +11,7 @@ import "./styles/home.css";
 
 const Home: React.FC<any> = (props) => {
     const { pathname } = useLocation();
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage] = useState(1);
     const [results, setResults] = useState<[]>([]);
     const [input, setInput] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);

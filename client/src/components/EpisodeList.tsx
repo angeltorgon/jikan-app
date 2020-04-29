@@ -24,7 +24,7 @@ const EpisodeList: React.FC<ITrailerVideoProps> = ({ resultId }) => {
             setEpisodes(res[0].data.episodes)
         })
 
-    },[])
+    },[resultId])
 
     if (isLoading) {
         return (
@@ -51,7 +51,7 @@ const EpisodeList: React.FC<ITrailerVideoProps> = ({ resultId }) => {
     return (
         <div className="episode-list-container">
             <div>
-                {episodes.map((episode:Episode) => <EpisodeCard episode={episode} />)}
+                {episodes.map((episode:Episode) => <EpisodeCard key={episode.episode_id} episode={episode} />)}
             </div>
         </div>
     )

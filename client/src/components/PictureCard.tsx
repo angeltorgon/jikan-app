@@ -5,7 +5,7 @@ import './styles/picture-card.css';
 const PictureCard: React.FC<IPictureCardProps> = ({ picture }) => {
     return (
         <div className="picture-card-container">
-            <img className="image" src={picture.large}/> 
+            <img alt="cartoon poster" className="image" src={picture.large}/> 
         </div>
     )
 }

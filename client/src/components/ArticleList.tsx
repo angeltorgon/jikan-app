@@ -18,7 +18,7 @@ const NewsList: React.FC<any> = ({resultId}) => {
             setArticles(res[0].data.articles)
         })
 
-    },[])
+    },[resultId])
 
     if (isLoading) {
         return (
@@ -45,7 +45,7 @@ const NewsList: React.FC<any> = ({resultId}) => {
     return (
         <div>
             <div>
-                {articles.map((article:Article) => <ArticleCard article={article} />)}
+                {articles.map((article:Article) => <ArticleCard key={article.date} article={article} />)}
             </div> 
         </div>
     )

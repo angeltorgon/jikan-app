@@ -19,7 +19,7 @@ const PictureList: React.FC<any> = ({resultId}) => {
             setPictures(res[0].data.pictures)
         })
 
-    },[])
+    },[resultId])
 
     if (isLoading) {
         return (
@@ -45,7 +45,7 @@ const PictureList: React.FC<any> = ({resultId}) => {
 
     return (
         <div className="picture-list-container">
-            {pictures.map((picture: Picture) => <PictureCard picture={picture} />)}
+            {pictures.map((picture: Picture) => <PictureCard key={picture.large} picture={picture} />)}
         </div>
     )
 }
