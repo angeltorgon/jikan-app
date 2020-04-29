@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import VideoCard from './VideoCard';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
+import { Video } from '../types.d';
 import './styles/video-list.css';
 
 const VideoList: React.FC<any> = ({resultId}) => {

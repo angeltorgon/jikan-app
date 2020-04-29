@@ -1,11 +1,8 @@
 import React from 'react';
 import './styles/video-list.css';
+import { IVideoCardProps } from '../types.d';
 
-interface IVideCardProps {
-
-}
-
-const VideoCard: React.FC<any> = ({video}) => {
+const VideoCard: React.FC<IVideoCardProps> = ({video}) => {
     console.log("video card props - ", video);
     return (
         <div className="video-card-container">
