@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import EpisodeCard from './EpisodeCard';
+import { Episode } from '../types.d';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
 
@@ -11,7 +12,7 @@ interface ITrailerVideoProps {
 
 const EpisodeList: React.FC<ITrailerVideoProps> = ({ resultId }) => {
     const rootURL = 'https://api.jikan.moe/v3/'
-    const [ episodes, setEpisodes ] = useState<any>([])
+    const [ episodes, setEpisodes ] = useState<Array<Episode>>([])
     const [ isLoading, setIsLoading ] = useState<boolean>(false)
 
     useEffect(() => {
@@ -21,6 +22,7 @@ const EpisodeList: React.FC<ITrailerVideoProps> = ({ resultId }) => {
         Promise.all([ fetchedEpisodes  ]).then((res) => {
             setIsLoading(false)
             setEpisodes(res[0].data.episodes)
+            console.log((res[0].data.episodes))
         })
 
     },[])
@@ -50,7 +52,7 @@ const EpisodeList: React.FC<ITrailerVideoProps> = ({ resultId }) => {
     return (
         <div className="episode-list-container">
             <div>
-                {episodes.map((episode:any) => <EpisodeCard episode={episode} />)}
+                {episodes.map((episode:Episode) => <EpisodeCard episode={episode} />)}
             </div>
         </div>
     )

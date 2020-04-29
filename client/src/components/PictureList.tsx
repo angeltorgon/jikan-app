@@ -17,7 +17,6 @@ const PictureList: React.FC<any> = ({resultId}) => {
         Promise.all([ fetchedPictures ]).then((res) => {
             setIsLoading(false)
             setPictures(res[0].data.pictures)
-            console.log(res[0].data.pictures)
         })
 
     },[])

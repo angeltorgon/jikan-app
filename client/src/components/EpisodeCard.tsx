@@ -1,8 +1,9 @@
 import React from 'react'
 import moment from 'moment';
+import { IEpisodeCardProps } from '../types.d';
 import './styles/episode-card.css';
 
-const EpisodeCard: React.FC<any> = ({episode}) => {
+const EpisodeCard: React.FC<IEpisodeCardProps> = ({ episode }) => {
     return (
         <div className="episode-card-container" >
             <div className="episode-wrapper">
